@@ -10,6 +10,8 @@ const App = () => {
   const [history, setHistory] = useState([]);   // Holds historical weather data
 
   const baseURL = import.meta.env.VITE_API_BASE_URL;
+  console.log(baseURL);
+  
 
   // Function to fetch current weather for a given city
   const fetchWeather = async (city) => {
