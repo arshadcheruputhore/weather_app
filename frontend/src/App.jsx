@@ -5,11 +5,11 @@ import WeatherForm from './WeatherForm';
 import WeatherCard from './WeatherCard';
 import HistoryTable from './HistoryTable';
 
-const baseURL = import.meta.env.VITE_API_BASE_URL;
-
 const App = () => {
   const [weather, setWeather] = useState(null); // Holds the latest fetched weather data
   const [history, setHistory] = useState([]);   // Holds historical weather data
+
+  const baseURL = import.meta.env.VITE_API_BASE_URL;
 
   // Function to fetch current weather for a given city
   const fetchWeather = async (city) => {
@@ -20,6 +20,7 @@ const App = () => {
       fetchHistory(); // Refresh historical data
     } catch (error) {
       alert('Failed to fetch weather. Please try again.');
+      console.log(error);
     }
   };
 
@@ -31,6 +32,8 @@ const App = () => {
       setHistory(res.data);
     } catch (error) {
       console.error('Error fetching history:', error.message);
+      console.log(error);
+      
     }
   };
 
@@ -43,6 +46,7 @@ const App = () => {
       setHistory(res.data);
     } catch (error) {
       console.error('Error filtering history:', error.message);
+      console.log(error);
     }
   };
 
