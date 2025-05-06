@@ -5,7 +5,7 @@ const cors = require("cors");
 const app = express();
 app.use(
   cors({
-    origin: "https://weather-app-gold-two-37.vercel.app/", 
+    origin: "https://weather-app-gold-two-37.vercel.app", 
     credentials: true,
   })
 );

@@ -14,7 +14,7 @@ const App = () => {
   // Function to fetch current weather for a given city
   const fetchWeather = async (city) => {
     try {
-      const response = await axios.post(`https://weather-app-gold-two-37.vercel.app/api/weather/fetch-weather`, { city });
+      const response = await axios.post(`${baseURL}/api/weather/fetch-weather`, { city });
       
       setWeather(response.data); // Store latest weather
       fetchHistory(); // Refresh historical data
@@ -27,7 +27,7 @@ const App = () => {
   // Function to get historical weather data from the server
   const fetchHistory = async () => {
     try {
-      const res = await axios.get(`https://weather-app-gold-two-37.vercel.app/api/weather/history`);
+      const res = await axios.get(`${baseURL}/api/weather/history`);
       
       setHistory(res.data);
     } catch (error) {
@@ -40,7 +40,7 @@ const App = () => {
   // Filtering historical weather data by city and date range
   const handleFilter = async ({ city, from, to }) => {
     try {
-      const res = await axios.get(`https://weather-app-gold-two-37.vercel.app/api/weather/history`, {
+      const res = await axios.get(`${baseURL}/api/weather/history`, {
         params: { city, from, to }
       });
       setHistory(res.data);
